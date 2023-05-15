@@ -4,7 +4,7 @@
 \alias{create_pp3_from_df}
 \title{Create a pp3 object}
 \usage{
-create_pp3_from_df(df, type, use.marks = TRUE)
+create_pp3_from_df(df, type = 1, use.marks = TRUE)
 }
 \arguments{
 \item{{df}}{A dataframe with columns

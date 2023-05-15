@@ -4,12 +4,18 @@
 \alias{probability.retain_points}
 \title{Probability function based on closest distances and cluster sizes}
 \usage{
-probability.retain_points(point_pattern, weight_ep = 0.045)
+probability.retain_points(
+  point_pattern,
+  weight_ep = 0.045,
+  scheme = "dependent"
+)
 }
 \arguments{
 \item{{point_pattern}}{Two-dimensional point pattern for the end points(object of class "ppp").}
 
 \item{{weight_ep}}{the scale parameter w of the probability function.}
+
+\item{{scheme}}{The thinning scheme for the end points. Either "dependent" or "random". Default is "dependent"}
 }
 \value{
 A vector of probabilities

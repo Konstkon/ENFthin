@@ -14,7 +14,7 @@ simulate_uniformly_in_disc(n, centre, r)
 \item{{r}}{the radius of the disc}
 }
 \value{
-a dataframe with the $X~coordinates and $Y~coordinates of the simulated points
+a dataframe with the $x~coordinates and $y~coordinates of the simulated points
 }
 \description{
 Creates a dataframe with the $X~coordinates and $Y~coordinates for the simulated points

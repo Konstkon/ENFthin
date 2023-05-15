@@ -10,10 +10,13 @@ simulate_thinned_patterns(
   point_pattern_bp_target = realbpMILD,
   normal_patterns = realep,
   normal_bp_patterns = realbp,
-  weight_bp = 0.3,
+  weight_bp = 0.1,
   scheme = "dependent",
+  scheme_ep = "dependent",
   regrowth = TRUE,
-  R = 20
+  R = 30,
+  Use.reactives = FALSE,
+  Original_probability = FALSE
 )
 }
 \arguments{
@@ -33,13 +36,21 @@ Should have a mark "Tree".}
 The number of points in this pattern give the target base point in the thinned pattern.
 Should have a mark "Tree".}
 
+\item{{Use.reactives}}{A parameter determining how the regrowth model should propose new points.}
+
 \item{{weight_bp}}{A scaling parameter for the probability function}
 
-\item{{scheme}}{A string determining the type of thinning to be applied. Either "dependent" or "random".}
+\item{{scheme}}{A string determining the type of thinning to be applied to the base points
+Either "dependent" or "random".}
+
+\item{{scheme_ep}}{A string determining the type of thinning to be applied to the end points
+Either "dependent" or "random".}
 
 \item{{regrowth}}{A boolean variable. If it is true a regrowth model(add or remove end points to match the target points) will be used}
 
 \item{{R}}{The radius parameter of the regrowth model when we should add end points}
+
+\item{{Original_probability}}{If TRUE calculates the probability as initially defined}
 }
 \value{
 A list of ENFtrees objects.

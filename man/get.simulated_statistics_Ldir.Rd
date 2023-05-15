@@ -4,7 +4,13 @@
 \alias{get.simulated_statistics_Ldir}
 \title{Overall centre cylindrical curves from a list of xsim objects}
 \usage{
-get.simulated_statistics_Ldir(x_sim_list, nsim = 2500, rad_p = 15, rad_z = 15)
+get.simulated_statistics_Ldir(
+  x_sim_list,
+  nsim = 2500,
+  rad_p = 15,
+  rad_z = 15,
+  r = seq(0, 30, 200)
+)
 }
 \arguments{
 \item{{x_sim_list}}{A list of size [N] [M] containing xsim objects( a list with $x~coordinates $bbox~bounding box)}
@@ -14,6 +20,8 @@ get.simulated_statistics_Ldir(x_sim_list, nsim = 2500, rad_p = 15, rad_z = 15)
 \item{{rad_p}}{The fixed halfwidth of the cylinders in the x and y directions}
 
 \item{{rad_z}}{The fixed halfwidth of the cylinders in the z direction.}
+
+\item{{r}}{Radiuses where the summary function is evaluated}
 }
 \value{
 A list with columns:

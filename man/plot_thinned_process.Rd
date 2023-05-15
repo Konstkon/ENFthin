@@ -11,7 +11,8 @@ plot_thinned_process(
   ppp_bp_thinned,
   plot.basepoints = TRUE,
   plot.legend = TRUE,
-  main = ""
+  main = "",
+  connection = TRUE
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ plot_thinned_process(
 \item{{plot.legend}}{Graphical parameter that controls whether to add a legend.}
 
 \item{{main}}{Graphical parameter that controls the main title.}
+
+\item{{connection}}{If TRUE it adds the segment between base and end points when plot.basepoint=TRUE}
 }
 \value{
 Creates a plot

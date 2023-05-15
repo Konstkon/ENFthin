@@ -4,10 +4,22 @@
 \alias{endpoint_regrowth}
 \title{Regrowth model}
 \usage{
-endpoint_regrowth(point_pattern, num_ep, hc = 1, R = 20, weight_ep = 0.045)
+endpoint_regrowth(
+  point_pattern,
+  point_pattern_bp,
+  num_ep,
+  hc = 1,
+  R = 20,
+  weight_ep = 0.045,
+  scheme = "dependent",
+  Use.reactives = "FALSE"
+)
 }
 \arguments{
 \item{{point_pattern}}{A two-dimensional point pattern (object of class "ppp").
+Should have a mark "Tree.}
+
+\item{{point_pattern_bp}A}{two-dimensional point pattern (object of class "ppp").
 Should have a mark "Tree.}
 
 \item{{num_ep}}{Target number of end points}
@@ -17,6 +29,11 @@ Should have a mark "Tree.}
 \item{{R}}{Radius parameter in the regrowth model when adding points}
 
 \item{{weight_ep}}{Scaling parameter in the probabiity function.}
+
+\item{{scheme}}{The thinning scheme for the end points. Either "dependent" or "random". Default is "dependent"}
+
+\item{{Use.reactives}}{A parameter determining how the regrowth model should propose new points.
+If true the point is suggested in the reactive territory else in a disc with centre c and radius R.}
 }
 \value{
 A two-dimensional point pattern
