@@ -1,12 +1,13 @@
 Package: ENFthin
 Type: Package
-Title: Thinning 
+Title: Epidermal nerve fiber thinning functions
 Version: 0.1.0
 Author: person("Konstantinos", "Konstantinou", email = "konkons@chalmers.se",
                   role = c("aut", "cre"))
 Maintainer: Konstantinos Konstantinou <konkons@chalmers.se>
-Description: This package contains the functions used to analyze the Epidermal Nerve fiber data in the paper Statistical modeling of diabetic neuropathy: Exploring the
-dynamics of nerve mortality
+Description: 
+    This package contains the functions used to analyze the Epidermal Nerve fiber data in the paper Statistical modeling of diabetic neuropathy: Exploring the dynamics of nerve mortality
+License: GPL-2
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
