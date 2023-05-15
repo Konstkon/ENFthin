@@ -7,6 +7,7 @@
 #' , where size is the cluster size.
 #' @param{point_pattern} Two-dimensional point pattern for the end points(object of class "ppp").
 #' @param{weight_ep} the scale parameter w of the probability function.
+#' @param{scheme} The thinning scheme for the end points. Either "dependent" or "random". Default is "dependent"
 #' @return A vector of probabilities
 #' @export
 #'
@@ -15,7 +16,8 @@
 
 
 probability.retain_points <- function(point_pattern,
-                                      weight_ep = 0.045
+                                      weight_ep = 0.045,
+                                      scheme = "dependent"
                                       ){
   min_distance = minimum_distance(point_pattern)
   sizes = add_cluster_size_marks(point_pattern)$marks$size
@@ -26,8 +28,13 @@ probability.retain_points <- function(point_pattern,
       probability = c( probability , 1 )
     }
     else{
+      if(scheme=="dependent"){
       probability = c(probability,
         exp( - weight_ep^2*min_distance[count]^2) )
+      }
+      else{
+        probability = c(probability, 0.5)
+      }
     }
     count = count+1
   }

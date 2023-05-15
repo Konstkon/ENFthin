@@ -6,7 +6,7 @@
 #' @param{n}  number of points to return.
 #' @param{centre} the $x~coordinates and $y~coordinates for the disc centre
 #' @param{r} the radius of the disc
-#' @return a dataframe with the $X~coordinates and $Y~coordinates of the simulated points
+#' @return a dataframe with the $x~coordinates and $y~coordinates of the simulated points
 #' @export
 #'
 #' @examples
@@ -18,7 +18,7 @@ simulate_uniformly_in_disc <- function(n, centre, r ){
   theta <- runif(n, 0, 2*pi)
   x <- centre[1] + rho * cos(theta)
   y <- centre[2] + rho * sin(theta)
-  df = data.frame(X=x,Y=y)
+  df = data.frame(x=x,y=y)
   df
 }
 

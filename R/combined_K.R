@@ -34,7 +34,7 @@ combined_global_test  <- function(radius,
                                   r_min =0,
                                   r_max=60,
                                   is.base_end =TRUE){
-  curve_set_list_=list()
+curve_set_list_=list()
 Number_of_summaries = length(observed_statistic_list)
 for (num in 1:Number_of_summaries){
 

@@ -25,7 +25,7 @@ GET_UNION_AREA <- function(point_pattern,point_pattern_bp){
   CHULL=list()
   count=1
   for (l in Trees){
-    CHULL[[count]] = get_ep_in_tree(point_pattern ,point_pattern_bp , l)
+    CHULL[[count]] = get.points_in_tree(point_pattern ,point_pattern_bp , l)
     count=count+1
   }
   np = unlist(lapply(CHULL, function(x)npoints(x)))

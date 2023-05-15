@@ -44,11 +44,11 @@ PROBABILITY_THINNING_ <- function(point_pattern,
   else{
     if(type=="BP"){
       min_distance = minimum_distance(point_pattern_bp,minimum)
-      probability = exp( -  weight_bp * min_distance)
+      probability = exp( -  weight_bp * min_distance^2)
     }
     if(type=="EP"){
       min_distance = minimum_distance(point_pattern,minimum)
-      probability = exp( -  weight_ep * min_distance)
+      probability = exp( -  weight_ep * min_distance^2)
     }
   }
   probability

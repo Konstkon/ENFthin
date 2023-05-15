@@ -19,7 +19,7 @@
 #' create_pp3_from_df(realbpdf[[1]],1)
 
 create_pp3_from_df <- function( df,
-                                type,
+                                type=1,
                                 use.marks =TRUE){
   if(class(df)=="data.frame"){
 
@@ -28,7 +28,7 @@ create_pp3_from_df <- function( df,
   }
 else{
   res = lapply( df, function(x)
-    pp3(x$X,x$Y,x$Z,box3(c(0,430),c(-330,0),c( min(x$Z)-5, max(x$Z)+5))))
+    pp3(x$X,x$Y,x$Z,box3(c(0,430),c(-330,0),c( min(x$Z)-5, max(x$Z)+55))))
 }
   if(use.marks == TRUE){
   res = lapply(seq_along(df),function(x) setmarks(res[[x]],

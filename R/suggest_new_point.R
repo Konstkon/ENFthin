@@ -32,7 +32,7 @@ suggest_new_point<- function(point_pattern,
     #Simulate random points
     new_point = simulate_uniformly_in_disc( 1 , mid_point_coords , R)
     #Create a ppp object
-    new_pattern = ppp ( new_point$X, new_point$Y, window =point_pattern$window)
+    new_pattern = ppp ( new_point$x, new_point$y, window =point_pattern$window)
     #Add relevant marks
     new_pattern = setmarks(new_pattern, data.frame(Tree= Tree,type =0))
     #Superimpose the ppp objects
@@ -40,7 +40,10 @@ suggest_new_point<- function(point_pattern,
     #Get min distance
     D = min (minimum_distance(mixed_pattern))
     count=count+1
-    if(count >20){return()}
+    if(count >20){
+      cond =FALSE
+      new_point =NULL
+    }
     if(is.na(D)== FALSE){
       if( D > hc){
         cond = FALSE

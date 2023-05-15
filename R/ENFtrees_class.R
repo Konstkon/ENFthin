@@ -11,6 +11,5 @@
 
 #' @export
 #'
-
 setClass("ENFtrees", slots=
            c(Basepoints = "ppp", Endpoints="ppp"))

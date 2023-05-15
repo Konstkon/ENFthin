@@ -10,6 +10,7 @@
 #' @param{nsim}  Number of simulations. Default is nsim=2500.
 #' @param{rad_p} The fixed halfwidth of the cylinders in the x and y directions
 #' @param{rad_z} The fixed halfwidth of the cylinders in the z direction.
+#' @param{r} Radiuses where the summary function is evaluated
 #' @return A list with columns:
 #' \itemize{
 #' \item $L_x : a matrix where each column is a pooled estimate of the cylindrical centred L function towards the x-axis from patterns that are obtained at random.
@@ -27,7 +28,8 @@
 get.simulated_statistics_Ldir <- function( x_sim_list,
                                            nsim=2500,
                                            rad_p =15,
-                                           rad_z =15){
+                                           rad_z =15,
+                                           r=seq(0,30,length=200)){
   #Get random indices
   INDEX = Random.samples(x_sim_list,nsim)
   #loop through nsim
@@ -36,7 +38,7 @@ get.simulated_statistics_Ldir <- function( x_sim_list,
     simulated_samples = Create.list.samples(x_sim_list, INDEX[i,])
 
     #Change this
-    simulated = Overall_centred_Lcyl(simulated_samples,rad_p = rad_p, rad_z = rad_z)
+    simulated = Overall_centred_Lcyl(simulated_samples,rad_p = rad_p, rad_z = rad_z,r=r)
     if(i==1){
       simulated_statistics_x = simulated$ L_x
       simulated_statistics_y = simulated$ L_y

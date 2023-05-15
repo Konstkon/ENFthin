@@ -17,7 +17,8 @@
 #' get.simulated_statistics(simulations)
 #'
 
-get.simulated_statistics <- function( point_pattern_list, nsim=2500,RMAX=30){
+get.simulated_statistics <- function( point_pattern_list,
+                                      nsim=2500,RMAX=30){
   #Get random indices
   INDEX = Random.samples(point_pattern_list,nsim)
   #loop through nsim

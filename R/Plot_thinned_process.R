@@ -11,6 +11,7 @@
 #' @param{plot.basepoints} Graphical parameter that controls whether to plot the base point patterns
 #' @param{plot.legend} Graphical parameter that controls whether to add a legend.
 #' @param{main} Graphical parameter that controls the main title.
+#' @param{connection} If TRUE it adds the segment between base and end points when plot.basepoint=TRUE
 #' @return Creates a plot
 #' @export
 #'
@@ -30,9 +31,10 @@ plot_thinned_process <- function(ppp_real,
                                  ppp_bp_thinned,
                                  plot.basepoints = TRUE,
                                  plot.legend = TRUE,
-                                 main=""){
+                                 main="",
+                                 connection=TRUE){
 
-  par(mfrow=c(1,1))
+ # par(mfrow=c(1,1))
 
   #Plot endpoints
   plot(ppp_real$x,ppp_real$y,pch=20,cex=1,main=main,col=2,xlab="X",ylab="Y",cex.lab =1.4)
@@ -42,6 +44,27 @@ plot_thinned_process <- function(ppp_real,
   if(plot.basepoints==TRUE){
   plot(unmark(ppp_bp_real),add=TRUE,pch=2,cex=0.8,col=2)
   plot(unmark(ppp_bp_thinned),add=TRUE,col=1,pch=2,cex=0.8)
+  if(connection==TRUE){
+   Trees = ppp_bp_real$marks$Tree
+   Trees_thinned = ppp_bp_thinned$marks$Tree
+   numset=c(1:length(Trees))
+   for (ntree in numset){
+   segments(ppp_bp_real$x[ppp_bp_real$marks$Tree==Trees[ntree]],
+            ppp_bp_real$y[ppp_bp_real$marks$Tree==Trees[ntree]] ,
+            ppp_real$x[ppp_real$marks$Tree==Trees[ntree]],
+            ppp_real$y[ppp_real$marks$Tree==Trees[ntree]],
+            col=2,lwd=1)
+   }
+   numset=c(1:length(Trees_thinned))
+   for (ntree in numset){
+     segments(ppp_bp_thinned$x[ppp_bp_thinned$marks$Tree==Trees_thinned[ntree]],
+              ppp_bp_thinned$y[ppp_bp_thinned$marks$Tree==Trees_thinned[ntree]] ,
+              ppp_thinned$x[ppp_thinned$marks$Tree==Trees_thinned[ntree]],
+              ppp_thinned$y[ppp_thinned$marks$Tree==Trees_thinned[ntree]],
+              col=1,lwd=1)
+   }
+
+    }
   if(plot.legend==TRUE){
   legend(par('usr')[2]-180, par('usr')[4]-30, bty='n', xpd=NA,
       c("Endpoints removed","Endpoints retained", "Basepoints removed", "Basepoints retained"),

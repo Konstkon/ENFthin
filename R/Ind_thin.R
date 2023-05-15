@@ -15,7 +15,7 @@
 #
 
 ind_thin <- function(point_pattern, num){
-  pattern_new = assign_id_to_pattern(point_pattern)
+  pattern_new = assign_random_marks(point_pattern)
   pattern_new = pattern_new [ pattern_new$marks$point_id <=num]
   pattern_new = setmarks(pattern_new,
                          data.frame(Tree = pattern_new$marks$Tree,
