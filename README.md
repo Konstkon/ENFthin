@@ -1,2 +1,3 @@
 # ENFthin
-Functions used for thinning epidermal nerve fibers
+This package includes all the functions used in the Statistical modeling of diabetic neuropathy: Exploring the
+dynamics of nerve mortality paper.
